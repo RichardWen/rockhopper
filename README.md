@@ -1,19 +1,15 @@
-# reactjs-go-boilerplate
+# Project Rockhopper
 
-A ReactJS + Go + Webpack 3 boilerplate.
+This code is for Teach LA
+
+<insert inspirational message about inspiring future developers here>
 
 ## Requirements
 - Go installed
 - NodeJS & npm installed
-- (optionally) Yarn installed
+- MongoDB installed
 
 ## Setup
-Yarn:
-
-`yarn global add webpack`
-
-`yarn install`
-
 NPM:
 
 `npm install -g webpack`
@@ -24,17 +20,19 @@ Install the Macaron web framework:
 
 `go get gopkg.in/macaron.v1`
 
+Add an empty directory in your project root called "data"
+
 ## Run
-Run Webpack:
+Run Webpack + Start Go Server:
 
-`yarn dev` or `npm run dev`
+`npm run dev`
 
-Make a Webpack production build:
+Start MongoDB:
 
-`yarn build` or `npm run build`
+`npm run server`
 
-Start the Go server:
-`go server.go`
+Deploy/Build
+`npm run build`
 
 ## Learn more
 [Webpack](https://webpack.js.org/)
@@ -46,6 +44,3 @@ Start the Go server:
 [Macaron](https://go-macaron.com/)
 
 [Go](https://golang.org/)
-
-## Credits
-This project is based on [codeskyblue/go-reactjs-example](https://github.com/codeskyblue/go-reactjs-example)
