@@ -1,9 +1,9 @@
 {
-  "author": "Rafael Klaessen",
+  "author": "Richard Wen",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafaelklaessen/reactjs-go-boilerplate.git"
+    "url": "git+https://github.com/RichardWen/rockhopper"
   },
   "scripts": {
     "dev": "concurrently --kill-others \"webpack -d --watch\" \"go run ./server/server.go\"",
