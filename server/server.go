@@ -4,13 +4,20 @@ import (
 	"log"
 	"fmt"
 	"net/http"
-	"gopkg.in/macaron.v1"
-	"gopkg.in/mgo.v2"
+	"github.com/gorilla/mux"
+	"github.com/gorilla/handlers"
+	"user"
 )
 
+func SignupEndpoint(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "not implemented yet !")
+}
+func DeleteEndpoint(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "not implemented yet !")
+}
+
 func main() {
-	m := macaron.Classic()
-	session, error := mgo.Dial("localhost")
+	/*session, error := mgo.Dial("localhost")
 
 	if error != nil {
       panic(error)
@@ -18,23 +25,19 @@ func main() {
   defer session.Close()
 
   session.SetMode(mgo.Monotonic, true)
-	
-	renderer := macaron.Renderer()
-	m.Use(renderer)
+	*/
 
-	m.Get("/*", func(ctx *macaron.Context) {
-		ctx.HTML(200, "homepage", nil)
-	})
+	r := user.NewRouter()
 
-	m.Use(macaron.Static("dist"))
+	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
+ 	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "DELETE", "PUT"})
 
-	http.Handle("/", m)
+	r.HandleFunc("/signup", SignupEndpoint).Methods("GET")
+	r.HandleFunc("/signup", DeleteEndpoint).Methods("DELETE")
 
 	fmt.Println("listening on localhost:8000")
 
-	err := http.ListenAndServe(":8000", nil)
-
-	if err != nil {
+	if err := http.ListenAndServe(":8000", r); err != nil {
 		log.Fatal(err)
 	}
 }
